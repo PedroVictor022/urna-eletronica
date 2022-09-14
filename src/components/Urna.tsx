@@ -1,56 +1,41 @@
 import React from "react";
 
-import styled from "styled-components";
 import { Container } from "../style/Global";
+import { ButtonNumber, UrnaContainer, ButtonWhite, ButtonRed, ButtonConfirm, UrnaDisplay } from "../style/UI";
 
-const UrnaContainer = styled.div`
-  background-color: #c4c4c4;
-  
-  display: flex;
-  gap: 2rem;
-
-  padding: 1.5rem;
-
-  box-shadow: 1px 0px 4px 1px gray;
-  border-radius: 4px;
-
-  buttons {
-   cursor: pointer;
-  }
-
-  .urna-display {
-   border: 1px solid #222;
-   padding: 1rem;
-  }
-`;
+import lula from "../assests/l.jpg";
 
 export function UrnaEletronica() {
   return (
-      <Container>
-        <UrnaContainer>
-         <div className="urna-display">
-            Voce votou em fulano
-         </div>
-         <div className="keys">
-            <div className="btn-number">
-               <p>1</p>
-               <p>2</p>
-               <p>3</p>
-               <p>4</p>
-               <p>5</p>
-               <p>6</p>
-               <p>7</p>
-               <p>8</p>
-               <p>9</p>
-               <p>0</p>
+    <Container>
+      <UrnaContainer>
+        <UrnaDisplay>
+         <img src="../assests/l.jpg" alt="" />
+        </UrnaDisplay>
+        <div className="keys">
+          <div className="all-numbers">
+            <div className="btn-number-grid">
+              <ButtonNumber>1</ButtonNumber>
+              <ButtonNumber>2</ButtonNumber>
+              <ButtonNumber>3</ButtonNumber>
+              <ButtonNumber>4</ButtonNumber>
+              <ButtonNumber>5</ButtonNumber>
+              <ButtonNumber>6</ButtonNumber>
+              <ButtonNumber>7</ButtonNumber>
+              <ButtonNumber>8</ButtonNumber>
+              <ButtonNumber>9</ButtonNumber>
             </div>
-            <div className="key-action">
-               <button>Branco</button>
-               <button>Corrige</button>
-               <button>Confirma</button>
+            <div className="btn-0">
+              <ButtonNumber>0</ButtonNumber>
             </div>
-         </div>
-        </UrnaContainer>
-      </Container>
+          </div>
+          <div className="key-action">
+            <ButtonWhite>Branco</ButtonWhite>
+            <ButtonRed>Corrige</ButtonRed>
+            <ButtonConfirm>Confirma</ButtonConfirm>
+          </div>
+        </div>
+      </UrnaContainer>
+    </Container>
   );
 }
