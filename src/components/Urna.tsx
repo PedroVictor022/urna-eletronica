@@ -3,9 +3,16 @@ import React from "react";
 import { Container } from "../style/Global";
 import { ButtonNumber, UrnaContainer, ButtonWhite, ButtonRed, ButtonConfirm, UrnaDisplay } from "../style/UI";
 
-import lula from "../assests/l.jpg";
-
 export function UrnaEletronica() {
+
+  // Criar estado para gerenciar estes numeros | Olhar repo da calculadora online para melhor exemplo
+
+  const allNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+  const getValues = (item: number) => {
+    allNumbers.includes(item)
+  }
+
   return (
     <Container>
       <UrnaContainer>
