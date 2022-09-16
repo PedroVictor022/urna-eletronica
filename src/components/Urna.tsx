@@ -1,17 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Container } from "../style/Global";
 import { ButtonNumber, UrnaContainer, ButtonWhite, ButtonRed, ButtonConfirm, UrnaDisplay } from "../style/UI";
 
 export function UrnaEletronica() {
+  const [ choiceNumber, setChoiceNumber ] = useState<number[]>([]);
 
   // Criar estado para gerenciar estes numeros | Olhar repo da calculadora online para melhor exemplo
 
   const allNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   const getValues = (item: number) => {
-    allNumbers.includes(item)
-    console.log(item);
+    console.log(item, typeof item);
+
+    const map1 = allNumbers.filter((n1) => n1 == item)
+    console.log(map1);
+
+    setChoiceNumber([...map1, item]);
+
+  }
+
+  const confirm = () => {
+   console.log(choiceNumber);
   }
 
   return (
@@ -40,7 +50,7 @@ export function UrnaEletronica() {
           <div className="key-action">
             <ButtonWhite>Branco</ButtonWhite>
             <ButtonRed>Corrige</ButtonRed>
-            <ButtonConfirm>Confirma</ButtonConfirm>
+            <ButtonConfirm onClick={() => confirm()}>Confirma</ButtonConfirm>
           </div>
         </div>
       </UrnaContainer>
