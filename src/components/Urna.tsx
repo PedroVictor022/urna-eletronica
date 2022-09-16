@@ -11,6 +11,7 @@ export function UrnaEletronica() {
 
   const getValues = (item: number) => {
     allNumbers.includes(item)
+    console.log(item);
   }
 
   return (
@@ -22,15 +23,15 @@ export function UrnaEletronica() {
         <div className="keys">
           <div className="all-numbers">
             <div className="btn-number-grid">
-              <ButtonNumber>1</ButtonNumber>
-              <ButtonNumber>2</ButtonNumber>
-              <ButtonNumber>3</ButtonNumber>
-              <ButtonNumber>4</ButtonNumber>
-              <ButtonNumber>5</ButtonNumber>
-              <ButtonNumber>6</ButtonNumber>
-              <ButtonNumber>7</ButtonNumber>
-              <ButtonNumber>8</ButtonNumber>
-              <ButtonNumber>9</ButtonNumber>
+              <ButtonNumber onClick={() => getValues(1)}>1</ButtonNumber>
+              <ButtonNumber onClick={() => getValues(2)}>2</ButtonNumber>
+              <ButtonNumber onClick={() => getValues(3)}>3</ButtonNumber>
+              <ButtonNumber onClick={() => getValues(4)}>4</ButtonNumber>
+              <ButtonNumber onClick={() => getValues(5)}>5</ButtonNumber>
+              <ButtonNumber onClick={() => getValues(6)}>6</ButtonNumber>
+              <ButtonNumber onClick={() => getValues(7)}>7</ButtonNumber>
+              <ButtonNumber onClick={() => getValues(8)}>8</ButtonNumber>
+              <ButtonNumber onClick={() => getValues(9)}>9</ButtonNumber>
             </div>
             <div className="btn-0">
               <ButtonNumber>0</ButtonNumber>
