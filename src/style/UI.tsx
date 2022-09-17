@@ -38,7 +38,17 @@ export const UrnaDisplay = styled.div`
   border: 1px solid #222;
   padding: 1rem;
   width: 350px;
+
+  display: flex;
+  align-items:center;
+  justify-content: center;
 `;
+
+export const UrnaNumber = styled.p`
+  font-size: 102px;
+  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+`
 
 export const ButtonConfirm = styled.button`
   padding: 1.2rem 0.8rem;
