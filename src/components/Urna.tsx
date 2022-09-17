@@ -12,27 +12,51 @@ import {
 } from "../style/UI";
 
 export function UrnaEletronica() {
-  const [choiceNumber, setChoiceNumber] = useState<number[]>([]);
+  const [numeroCandidato, setnumeroCandidato] = useState<number[]>([]);
+  const [ candidato, setCandidato ] = useState([
+    {
+      id: 1, 
+      numero: "22",
+      name: 'Bolsonaro',
+      qtdVotos: 0
+    },
+    {
+      id: 2,
+      numero: "13", 
+      name: 'Lula',
+      qtdVotos: 0
+    },
+    {
+      id: 3,
+      numero: "12",
+      name: 'Ciro da Massa',
+      qtdVotos: 0
+    }
+  ])
 
   // Criar estado para gerenciar estes numeros | Olhar repo da calculadora online para melhor exemplo
 
   const getValues = (item: number) => {
     console.log(item, typeof item);
 
-    if (choiceNumber.length < 2) {
-      setChoiceNumber([...choiceNumber, item]);
+    if (numeroCandidato.length < 2) {
+      setnumeroCandidato([...numeroCandidato, item]);
     } else {
-      setChoiceNumber([]);
+      setnumeroCandidato([]);
       console.log("Numero maximo de caracteres atingido");
     }
 
-    console.log(choiceNumber);
+    console.log(numeroCandidato);
   };
 
   const confirm = () => {
-    if(choiceNumber.length == 2) {
-      console.log('Voto confirmado');
-      setChoiceNumber([]);
+    if(numeroCandidato.length == 2) {
+
+      let c = numeroCandidato.concat(numeroCandidato[0] + numeroCandidato[1]);
+      console.log(c);
+      // const candTemp = candidato.map((item) => item.numero == item.numero)
+
+      setnumeroCandidato([]);
     } else {
       console.log('Voto em branco');
     }
@@ -43,7 +67,7 @@ export function UrnaEletronica() {
       <UrnaContainer>
         <UrnaDisplay>
           {
-            <UrnaNumber>{choiceNumber}</UrnaNumber>
+            <UrnaNumber>{numeroCandidato}</UrnaNumber>
           }
         </UrnaDisplay>
         <div className="keys">
