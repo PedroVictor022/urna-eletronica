@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import { Container } from "../style/Global";
 import {
@@ -13,6 +13,7 @@ import {
 
 export function UrnaEletronica() {
   const [numeroCandidato, setnumeroCandidato] = useState<string[]>([]);
+  const [nomeCandidato, setNomeCandidato] = useState<string>();
   const [candidato, setCandidato] = useState([
     {
       id: 1,
@@ -33,6 +34,8 @@ export function UrnaEletronica() {
       qtdVotos: 0,
     },
   ]);
+
+
   const keyValue = (item: string) => {
     if (numeroCandidato.length < 2) {
       setnumeroCandidato([...numeroCandidato, item]);
@@ -45,20 +48,22 @@ export function UrnaEletronica() {
   const confirm = () => {
     if (numeroCandidato.length == 2) {
 
-      let userChoice = numeroCandidato.concat(numeroCandidato[0] + numeroCandidato[1])[2]; // Retorna numero digitado na urna
+      let userDigit = numeroCandidato.concat(numeroCandidato[0] + numeroCandidato[1])[2]; // Retorna numero digitado na urna
 
       const filterCandidato = candidato.filter(
-        (item) => item.numero === userChoice
-      );
+        (item) => item.numero === userDigit
+      ); // Filtro de candidatos
 
-      const nPresidente = filterCandidato[0]
-      console.log(userChoice, nPresidente);
+      const verifyCandidato = filterCandidato[0]; // Simplificando desetruturacao
+      console.log(userDigit, verifyCandidato);
 
-      if (nPresidente === undefined) {
+      if (verifyCandidato === undefined) {
         console.log('Voto invalido');
+        setNomeCandidato(undefined);
       } else {
-        nPresidente.qtdVotos++;
-        console.log(nPresidente.qtdVotos);
+        verifyCandidato.qtdVotos++;
+        setNomeCandidato(verifyCandidato.name)
+        console.log(verifyCandidato.qtdVotos);
       }
 
       setnumeroCandidato([]);
@@ -70,7 +75,13 @@ export function UrnaEletronica() {
   return (
     <Container>
       <UrnaContainer>
-        <UrnaDisplay>{<UrnaNumber>{numeroCandidato}</UrnaNumber>}</UrnaDisplay>
+        <UrnaDisplay>
+            <UrnaNumber>
+              {
+                numeroCandidato
+              }
+            </UrnaNumber>
+        </UrnaDisplay>
         <div className="keys">
           <div className="all-numbers">
             <div className="btn-number-grid">
@@ -85,7 +96,7 @@ export function UrnaEletronica() {
               <ButtonNumber onClick={() => keyValue("9")}>9</ButtonNumber>
             </div>
             <div className="btn-0">
-              <ButtonNumber>0</ButtonNumber>
+              <ButtonNumber onClick={() => keyValue("0")}>0</ButtonNumber>
             </div>
           </div>
           <div className="key-action">
@@ -95,6 +106,8 @@ export function UrnaEletronica() {
           </div>
         </div>
       </UrnaContainer>
+
+      oi
     </Container>
   );
 }

@@ -40,6 +40,7 @@ export const UrnaDisplay = styled.div`
   width: 350px;
 
   display: flex;
+  flex-direction: column;
   align-items:center;
   justify-content: center;
 `;
@@ -54,21 +55,34 @@ export const ButtonConfirm = styled.button`
   padding: 1.2rem 0.8rem;
   color: #222;
   background-color: #119911;
-  border: none;
+  border: 2px solid #0bd80b;
+  border-radius: 4px;
+  &:hover {
+    border:2px solid #41e441;
+  }
 `;
 export const ButtonWhite = styled.button`
   padding: 0.6rem;
   color: #222;
   background-color: #f0f0f0;
-  border: none;
+  border: 2px solid gray;
+  border-radius: 4px;
   font-weight: 600;
+
+  &:hover {
+    border:2px solid #b4b4b4;
+  }
 `;
 export const ButtonRed = styled.button`
   padding: 0.6rem;
   color: #222;
   background-color: #c0320e;
-  border: none;
+  border: 2px solid #701903;
+  border-radius: 4px;
   font-weight: 600;
+  &:hover {
+    border:2px solid #aa0d07;
+  }
 `;
 
 export const ButtonNumber = styled.button`
@@ -80,9 +94,11 @@ export const ButtonNumber = styled.button`
   border-radius: 4px;
   box-shadow: 1px 0px 2px 1px #1d1d1d;
   cursor: pointer;
+  border: 1px solid #474747;
 
-  transition: all 0.2s;
+  transition: all 0.1s;
   &:hover {
     box-shadow: 2px 0px 3px 1px #242424;
+    border: 1px solid #333333;
   }
 `;
