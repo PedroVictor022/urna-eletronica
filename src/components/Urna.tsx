@@ -101,13 +101,12 @@ export function UrnaEletronica() {
           </div>
           <div className="key-action">
             <ButtonWhite>Branco</ButtonWhite>
+            
             <ButtonRed>Corrige</ButtonRed>
             <ButtonConfirm onClick={() => confirm()}>Confirma</ButtonConfirm>
           </div>
         </div>
       </UrnaContainer>
-
-      oi
     </Container>
   );
 }
