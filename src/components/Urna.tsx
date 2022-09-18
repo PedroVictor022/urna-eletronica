@@ -44,21 +44,22 @@ export function UrnaEletronica() {
 
   const confirm = () => {
     if (numeroCandidato.length == 2) {
-      // Retorna o numero digitado pelo usuario
-      let userChoice = numeroCandidato.concat(numeroCandidato[0] + numeroCandidato[1])[2];
+
+      let userChoice = numeroCandidato.concat(numeroCandidato[0] + numeroCandidato[1])[2]; // Retorna numero digitado na urna
 
       const filterCandidato = candidato.filter(
-        (item) => item.numero == userChoice
+        (item) => item.numero === userChoice
       );
 
       const nPresidente = filterCandidato[0]
-      console.log(nPresidente);
+      console.log(userChoice, nPresidente);
 
-      // if(userChoice == nPresidente.numero) {
-      //   console.log(`Voto adicionado ao presidente ${nPresidente.name}`)
-      // } else {
-      //   console.log('Voto em nulo')
-      // }
+      if (nPresidente === undefined) {
+        console.log('Voto invalido');
+      } else {
+        nPresidente.qtdVotos++;
+        console.log(nPresidente.qtdVotos);
+      }
 
       setnumeroCandidato([]);
     } else {
