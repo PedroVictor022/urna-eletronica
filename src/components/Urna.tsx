@@ -9,11 +9,13 @@ import {
   ButtonConfirm,
   UrnaDisplay,
   UrnaNumber,
+  UserConfigs,
 } from "../style/UI";
 
 export function UrnaEletronica() {
   const [numeroCandidato, setnumeroCandidato] = useState<string[]>([]);
   const [nomeCandidato, setNomeCandidato] = useState<string>();
+  const [contagem, setContagem] = useState<string[]>([]);
   const [candidato, setCandidato] = useState([
     {
       id: 1,
@@ -72,6 +74,12 @@ export function UrnaEletronica() {
     }
   };
 
+  const finalizarEleicao = () => {
+    console.log('Finalizar eleição!');
+    const cMap = candidato.map(item => item.qtdVotos > (2 * item.qtdVotos)) 
+    console.log(cMap)
+  }
+
   return (
     <Container>
       <UrnaContainer>
@@ -107,6 +115,11 @@ export function UrnaEletronica() {
           </div>
         </div>
       </UrnaContainer>
+
+      <UserConfigs>
+        <button onClick={finalizarEleicao}>Finalizar Eleição</button>
+      </UserConfigs>
+
     </Container>
   );
 }

@@ -102,3 +102,20 @@ export const ButtonNumber = styled.button`
     border: 1px solid #333333;
   }
 `;
+
+export const UserConfigs = styled.div`
+  display: flex;
+  align-items:center;
+  gap: 1rem;
+
+  margin-top: 1.5rem;
+
+  button {
+    padding: 1rem;
+
+    border-radius: 4px;
+    border: none;
+
+    background-color: #119911;
+  }
+`;
