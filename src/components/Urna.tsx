@@ -16,24 +16,23 @@ import {
 export function UrnaEletronica() {
   const [numeroCandidato, setnumeroCandidato] = useState<string[]>([]);
   const [nomeCandidato, setNomeCandidato] = useState<string>();
-  const [contagem, setContagem] = useState<string[]>([]);
   const [candidato, setCandidato] = useState([
     {
       id: 1,
       numero: "22",
-      name: "BOLSONARO",
+      name: "Bolsonaro",
       qtdVotos: 0,
     },
     {
       id: 2,
       numero: "13",
-      name: "LULA",
+      name: "Lula",
       qtdVotos: 0,
     },
     {
       id: 3,
       numero: "12",
-      name: "CIRO GOMES",
+      name: "Ciro Gomes",
       qtdVotos: 0,
     },
   ]);
@@ -74,7 +73,7 @@ export function UrnaEletronica() {
         console.log(numeroCandidato);
         setnumeroCandidato([]);
         setNomeCandidato(undefined);
-      }, 2500)
+      }, 2300)
     } else {
       console.log("Voto em branco");
     }

@@ -62,6 +62,7 @@ export const ButtonConfirm = styled.button`
   background-color: #119911;
   border: 2px solid #0bd80b;
   border-radius: 4px;
+  cursor: pointer;
   &:hover {
     border:2px solid #41e441;
   }
