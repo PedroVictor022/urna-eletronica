@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Container } from "../style/Global";
 import {
@@ -10,6 +10,7 @@ import {
   UrnaDisplay,
   UrnaNumber,
   UserConfigs,
+  UrnaName,
 } from "../style/UI";
 
 export function UrnaEletronica() {
@@ -20,19 +21,19 @@ export function UrnaEletronica() {
     {
       id: 1,
       numero: "22",
-      name: "Bolsonaro",
+      name: "BOLSONARO",
       qtdVotos: 0,
     },
     {
       id: 2,
       numero: "13",
-      name: "Lula",
+      name: "LULA",
       qtdVotos: 0,
     },
     {
       id: 3,
       numero: "12",
-      name: "Ciro da Massa",
+      name: "CIRO GOMES",
       qtdVotos: 0,
     },
   ]);
@@ -41,14 +42,16 @@ export function UrnaEletronica() {
   const keyValue = (item: string) => {
     if (numeroCandidato.length < 2) {
       setnumeroCandidato([...numeroCandidato, item]);
+
     } else {
       setnumeroCandidato([]);
       console.log("Numero maximo de caracteres atingido");
+      setNomeCandidato("");
     }
   };
 
   const confirm = () => {
-    if (numeroCandidato.length == 2) {
+    if (numeroCandidato.length === 2) {
 
       let userDigit = numeroCandidato.concat(numeroCandidato[0] + numeroCandidato[1])[2]; // Retorna numero digitado na urna
 
@@ -60,35 +63,43 @@ export function UrnaEletronica() {
       console.log(userDigit, verifyCandidato);
 
       if (verifyCandidato === undefined) {
-        console.log('Voto invalido');
         setNomeCandidato(undefined);
       } else {
         verifyCandidato.qtdVotos++;
-        setNomeCandidato(verifyCandidato.name)
+        setNomeCandidato(verifyCandidato.name);
         console.log(verifyCandidato.qtdVotos);
       }
-
-      setnumeroCandidato([]);
+      setTimeout(() => {
+        console.log(nomeCandidato);
+        console.log(numeroCandidato);
+        setnumeroCandidato([]);
+        setNomeCandidato(undefined);
+      }, 2500)
     } else {
       console.log("Voto em branco");
     }
   };
 
-  const finalizarEleicao = () => {
-    console.log('Finalizar eleição!');
-    const cMap = candidato.map(item => item.qtdVotos > (2 * item.qtdVotos)) 
-    console.log(cMap)
+  const branco = () => {
+    setCandidato([]);
+    setNomeCandidato("Voto em branco");
   }
+
 
   return (
     <Container>
       <UrnaContainer>
         <UrnaDisplay>
-            <UrnaNumber>
-              {
-                numeroCandidato
-              }
-            </UrnaNumber>
+          <UrnaNumber>
+            {
+              numeroCandidato
+            }
+          </UrnaNumber>
+          <UrnaName>
+            {
+              nomeCandidato ? nomeCandidato : null
+            }
+          </UrnaName>
         </UrnaDisplay>
         <div className="keys">
           <div className="all-numbers">
@@ -108,18 +119,13 @@ export function UrnaEletronica() {
             </div>
           </div>
           <div className="key-action">
-            <ButtonWhite>Branco</ButtonWhite>
-            
+            <ButtonWhite onClick={() => branco()}>Branco</ButtonWhite>
+
             <ButtonRed>Corrige</ButtonRed>
             <ButtonConfirm onClick={() => confirm()}>Confirma</ButtonConfirm>
           </div>
         </div>
       </UrnaContainer>
-
-      <UserConfigs>
-        <button onClick={finalizarEleicao}>Finalizar Eleição</button>
-      </UserConfigs>
-
     </Container>
   );
 }

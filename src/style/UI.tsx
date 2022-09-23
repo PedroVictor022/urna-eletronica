@@ -50,6 +50,11 @@ export const UrnaNumber = styled.p`
   font-weight: 600;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
 `
+export const UrnaName = styled.p`
+  font-size: 40px;
+  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+`
 
 export const ButtonConfirm = styled.button`
   padding: 1.2rem 0.8rem;
