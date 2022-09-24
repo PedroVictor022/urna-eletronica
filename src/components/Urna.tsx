@@ -19,20 +19,20 @@ export function UrnaEletronica() {
   const [candidato, setCandidato] = useState([
     {
       id: 1,
-      numero: "22",
-      name: "Bolsonaro",
+      numero: "30",
+      name: "Candidato A",
       qtdVotos: 0,
     },
     {
       id: 2,
-      numero: "13",
-      name: "Lula",
+      numero: "40",
+      name: "Candidato B",
       qtdVotos: 0,
     },
     {
       id: 3,
-      numero: "12",
-      name: "Ciro Gomes",
+      numero: "50",
+      name: "Candidato C",
       qtdVotos: 0,
     },
   ]);
@@ -67,13 +67,14 @@ export function UrnaEletronica() {
         verifyCandidato.qtdVotos++;
         setNomeCandidato(verifyCandidato.name);
         console.log(verifyCandidato.qtdVotos);
+        alert("VOTO CONFIRMADO!");
       }
       setTimeout(() => {
-        console.log(nomeCandidato);
         console.log(numeroCandidato);
         setnumeroCandidato([]);
         setNomeCandidato(undefined);
-      }, 2300)
+      }, 2300);
+      
     } else {
       console.log("Voto em branco");
     }
